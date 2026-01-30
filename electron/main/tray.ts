@@ -1,9 +1,9 @@
 import { BrowserWindow, nativeImage, Tray } from 'electron'
-import icon from '../../resources/icon.png?asset'
+import icon from '../../resources/oi-logo.png?asset'
 
 export function createTray() {
   const tray = new Tray(nativeImage.createFromPath(icon))
-  tray.setToolTip('Electron Starter')
+  tray.setToolTip('OI Music')
 
   tray.on('click', () => {
     BrowserWindow.getAllWindows().forEach((window) => {

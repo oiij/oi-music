@@ -1,26 +1,23 @@
-import { readFileSync } from 'node:fs'
+import NeteaseCloudMusicApi from '@neteasecloudmusicapienhanced/api'
 import { H3, serve } from 'h3'
 import { SERVER_PORT } from '../../config'
-import icon from '../../resources/icon.png?asset'
+import { createNCMApi } from './ncm-api'
 
-export function createServer() {
+export async function createServer() {
   const app = new H3({
     debug: true,
   })
-  app.get('/api/hello', () => {
-    return 'hello world'
-  })
-  app.get('/api/json', () => {
+  app.all('/api', () => {
     return {
-      message: 'hello world',
+      version: '4.29.20',
+      apis: Object.keys(NeteaseCloudMusicApi),
     }
   })
-  app.get('/api/icon', (event) => {
-    const file = readFileSync(icon)
-    event.res.headers.set('Content-Type', 'image/png')
-    return file
-  })
-  serve(app, {
+  app.mount('/api/ncm', createNCMApi())
+
+  await serve(app, {
     port: SERVER_PORT,
-  })
+  }).ready()
+
+  return app
 }

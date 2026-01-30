@@ -7,20 +7,20 @@
 declare module '~virtual/svg-component' {
   const SvgIcon: import("vue").DefineComponent<{
       name: {
-          type: import("vue").PropType<"">;
+          type: import("vue").PropType<"icon-music" | "icon-oi-logo" | "icon-playing">;
           default: string;
           required: true;
       };
   }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
       name: {
-          type: import("vue").PropType<"">;
+          type: import("vue").PropType<"icon-music" | "icon-oi-logo" | "icon-playing">;
           default: string;
           required: true;
       };
   }>>, {
-      name: "";
+      name: "icon-music" | "icon-oi-logo" | "icon-playing";
   }>;
-  export const svgNames: [""];
-  export type SvgName = "";
+  export const svgNames: ["icon-music", "icon-oi-logo", "icon-playing"];
+  export type SvgName = "icon-music" | "icon-oi-logo" | "icon-playing";
   export default SvgIcon;
 }

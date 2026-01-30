@@ -34,7 +34,7 @@ function handleUpdateValue(key: string) {
         />
       </NScrollbar>
     </div>
-    <div class="flex items-center justify-center p-y-[10px]">
+    <div class="flex items-center justify-center py-2">
       <NButton quaternary @click="toggleCollapsed">
         <template #icon>
           <Transition name="fade" mode="out-in">

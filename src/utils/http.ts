@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import axios from 'axios'
-import { fetch } from 'electron-plugin-fetch/fetch'
 import NProgress from 'nprogress'
 import { API_BASE_PREFIX } from '../../config'
 
@@ -10,10 +9,6 @@ export const axiosInstance: AxiosInstance = axios.create({
   timeout: 1000 * 30,
   headers: {
     'Content-Type': 'application/json',
-  },
-  adapter: 'fetch',
-  env: {
-    fetch,
   },
 })
 const isDev = import.meta.env.DEV
@@ -54,6 +49,9 @@ export function get<RES = any, REQ = object>(path: string, data?: REQ): Promise<
 export function post<RES extends string | object>(path: string, data?: Record<string, any>): Promise<RES> {
   return axiosInstance(path, {
     method: 'post',
-    data,
+    data: {
+      ...data,
+      timestamp: Date.now(),
+    },
   })
 }

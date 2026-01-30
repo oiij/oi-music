@@ -27,7 +27,6 @@ export default defineConfig({
         },
       },
     },
-    // plugins: [externalizeDepsPlugin(), bytecodePlugin()],
   },
   preload: {
     build: {
@@ -37,7 +36,6 @@ export default defineConfig({
         },
       },
     },
-    // plugins: [externalizeDepsPlugin(), bytecodePlugin()],
   },
   renderer: {
     root: '.',

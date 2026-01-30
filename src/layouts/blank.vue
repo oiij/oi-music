@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="wh-full">
+  <div>
     <RouterEntry />
   </div>
 </template>

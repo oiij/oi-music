@@ -10,7 +10,8 @@ import presetTheme from 'unocss-preset-theme'
 
 export default defineConfig({
   rules: [
-
+    ['draggable', { 'app-region': `drag;` }],
+    ['no-draggable', { 'app-region': `no-drag;` }],
   ],
   shortcuts: {
 

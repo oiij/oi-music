@@ -13,16 +13,17 @@ definePage({
     requireAuth: true,
     keepAlive: true,
     icon: 'i-mage-settings',
+    hide: true,
   },
 })
 const { language, colorMode } = storeToRefs(useAppStore())
 const CardItem = defineComponent((props: { title?: string }, { slots }) => {
   return () => h('div', {
-    class: 'flex-col gap-[10px] rounded-xl bg-white p-[20px] dark:bg-black/20',
+    class: 'flex-col gap-2 rounded-xl bg-white p-4 dark:bg-black/20',
   }, [
     h('h1', { class: 'text-xl' }, props.title ?? 'Card Name'),
-    h(NDivider, { class: 'm-y-[10px]!' }),
-    h('div', { class: 'flex-col gap-[10px]' }, [
+    h(NDivider, { class: 'my-2!' }),
+    h('div', { class: 'flex-col gap-2' }, [
       slots.default && slots.default(),
     ]),
   ])
@@ -61,13 +62,13 @@ const colorModeOptions: SelectOption[] = [
 </script>
 
 <template>
-  <div class="flex-col gap-[10px] p-[20px]">
+  <div class="flex-col gap-2 p-4">
     <CardItem title="通用">
       <NFormItem label="语言">
-        <NSelect v-model:value="language" class="w-[260px]!" :options="localesOptions" />
+        <NSelect v-model:value="language" class="w-60!" :options="localesOptions" />
       </NFormItem>
       <NFormItem label="颜色模式">
-        <NSelect v-model:value="colorMode" class="w-[260px]!" :options="colorModeOptions" />
+        <NSelect v-model:value="colorMode" class="w-60!" :options="colorModeOptions" />
       </NFormItem>
     </CardItem>
     <CardItem title="关于">

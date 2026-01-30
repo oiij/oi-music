@@ -8,10 +8,27 @@ export const useAppStore = defineStore(
   () => {
     const { locale, language } = useLanguage()
     const { isDark, preferredDark, colorMode } = useTheme()
-    const { color, theme, themeOverrides, locale: naiveLocal, dateLocale } = useNaiveTheme({
+    const { colors, themeColors, theme, themeOverrides, locale: naiveLocal } = useNaiveTheme({
       darkMode: isDark,
       language: locale,
+      colors: {
+        primary: '#FF2D51FF',
+      },
+      darkColors: (colors) => {
+        return colors
+      },
+      globalThemeOverrides: {
+        common: {
+          borderRadius: '8px',
+        },
+        Button: {
+          color: 'rgb(252, 252, 252,0.1)',
+          colorHover: 'rgb(252, 252, 252,0.2)',
+        },
+      },
     })
+    const playlistColor = ref([0, 0, 0])
+
     const { value: collapsed, toggle: toggleCollapsed } = useBoolean(false)
     const transitionName = ref('fade')
     const reloadFlag = ref(false)
@@ -33,16 +50,17 @@ export const useAppStore = defineStore(
       isDark,
       preferredDark,
       colorMode,
-      color,
+      colors,
+      themeColors,
       theme,
       themeOverrides,
       naiveLocal,
-      dateLocale,
       collapsed,
       toggleCollapsed,
       transitionName,
       reloadFlag,
       reload,
+      playlistColor,
     }
   },
   {

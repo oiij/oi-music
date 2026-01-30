@@ -37,6 +37,34 @@ declare module 'vue-router/auto-routes' {
       { all: ParamValue<false> },
       | never
     >,
+    '/playlist/': RouteRecordInfo<
+      '/playlist/',
+      '/playlist',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/podcast/': RouteRecordInfo<
+      '/podcast/',
+      '/podcast',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/recommend/': RouteRecordInfo<
+      '/recommend/',
+      '/recommend',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/search/': RouteRecordInfo<
+      '/search/',
+      '/search',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/setting': RouteRecordInfo<
       '/setting',
       '/setting',
@@ -66,6 +94,30 @@ declare module 'vue-router/auto-routes' {
     'src/pages/[...all].vue': {
       routes:
         | '/[...all]'
+      views:
+        | never
+    }
+    'src/pages/playlist/index.vue': {
+      routes:
+        | '/playlist/'
+      views:
+        | never
+    }
+    'src/pages/podcast/index.vue': {
+      routes:
+        | '/podcast/'
+      views:
+        | never
+    }
+    'src/pages/recommend/index.vue': {
+      routes:
+        | '/recommend/'
+      views:
+        | never
+    }
+    'src/pages/search/index.vue': {
+      routes:
+        | '/search/'
       views:
         | never
     }

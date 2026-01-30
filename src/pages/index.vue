@@ -1,29 +1,15 @@
 <script setup lang='ts'>
-import Foo from '~/components/Foo'
-
-defineOptions({
-
-})
 definePage({
   meta: {
-    layout: 'default',
-    title: 'HOME',
-    requireAuth: true,
-    keepAlive: true,
-    icon: 'svg:icon-pixel-travel-icon-比基尼',
+    hide: true,
   },
 })
-useHead({
-  title: '首页',
-})
+const router = useRouter()
+router.replace('/recommend')
 </script>
 
 <template>
-  <div class="wh-full flex-col-center gap-10">
-    Hello!
-    <Foo />
-    <ElectronFetch />
-  </div>
+  <span />
 </template>
 
 <style scoped lang='less'>

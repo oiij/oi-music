@@ -30,24 +30,22 @@ function formatComponentInstance(component: Component, route: RouteLocationNorma
 </script>
 
 <template>
-  <div class="h-[100vh] w-[100vw]">
-    <BaseLayout>
-      <RouterView v-slot="{ Component, route }">
-        <Transition appear mode="out-in" :name="transitionName">
-          <KeepAlive :include="keepAlivePath" :exclude="reloadFlag ? currentRoutePath : undefined">
-            <Suspense>
-              <component :is="formatComponentInstance(Component, route)" v-if="!reloadFlag" :key="route.path" />
-              <template #fallback>
-                <slot name="fallback">
-                  Component Fallback
-                </slot>
-              </template>
-            </Suspense>
-          </KeepAlive>
-        </Transition>
-      </RouterView>
-    </BaseLayout>
-  </div>
+  <BaseLayout>
+    <RouterView v-slot="{ Component, route }">
+      <Transition appear mode="out-in" :name="transitionName">
+        <KeepAlive :include="keepAlivePath" :exclude="reloadFlag ? currentRoutePath : undefined">
+          <Suspense>
+            <component :is="formatComponentInstance(Component, route)" v-if="!reloadFlag" :key="route.path" />
+            <template #fallback>
+              <slot name="fallback">
+                Component Fallback
+              </slot>
+            </template>
+          </Suspense>
+        </KeepAlive>
+      </Transition>
+    </RouterView>
+  </BaseLayout>
 </template>
 
 <style scoped lang="less"></style>

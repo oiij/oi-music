@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { useBoolean } from '@oiij/use'
-import { cloneDeep } from 'lodash-es'
+import { cloneDeep } from 'es-toolkit'
 import { routes as _routes } from 'vue-router/auto-routes'
 import { router } from '~/modules'
 
@@ -12,7 +12,6 @@ function parseRoutes(routes: RouteRecordRaw[] | readonly RouteRecordRaw[]): Rout
       meta: {
         ...route.meta,
         ...indexMeta,
-        sort: route.meta?.sort,
       },
       children: route.children?.map((m) => {
         return {
