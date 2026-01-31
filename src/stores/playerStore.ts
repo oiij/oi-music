@@ -41,14 +41,12 @@ export const usePlayerStore = defineStore('playerStore', () => {
     switch (playMode.value) {
       case 'random':{
         const id = mediaStore.getRandomSongId()
-        mediaStore.songIdCache.push(id)
         await mediaStore.playSong(id)
       }
         break
 
       default:{
         const id = mediaStore.getNextSongId()
-        mediaStore.songIdCache.push(id)
         await mediaStore.playSong(id)
       }
         break

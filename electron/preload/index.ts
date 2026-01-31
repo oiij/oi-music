@@ -4,7 +4,6 @@ import type { IpcRendererEvent } from 'electron'
 import process from 'node:process'
 import { electronAPI } from '@electron-toolkit/preload'
 import { contextBridge, ipcRenderer } from 'electron'
-import { electronPluginFetchPreloadRegister } from 'electron-plugin-fetch/preload'
 import { windowExpose } from './window'
 
 type Listener<T> = (event: IpcRendererEvent, ...args: T[]) => void
@@ -52,4 +51,3 @@ else {
   window.electron = electronAPI
   window.api = api
 }
-electronPluginFetchPreloadRegister(contextBridge, ipcRenderer)
